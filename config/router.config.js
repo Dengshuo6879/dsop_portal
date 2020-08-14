@@ -46,6 +46,11 @@ export default [
             ],
           },
           {
+            name: 'JSON转化',
+            path: '/spec',
+            component: './Spec'
+          },
+          {
             name: 'list.table-list',
             icon: 'table',
             path: '/list',
