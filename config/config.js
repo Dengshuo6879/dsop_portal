@@ -1,10 +1,8 @@
 // https://umijs.org/config/
 import { defineConfig } from 'umi';
 import defaultSettings from './defaultSettings';
-import proxy from './proxy';
 import pageRoutes from './router.config';
 
-const { REACT_APP_ENV } = process.env;
 export default defineConfig({
   hash: true,
   antd: {},
@@ -18,9 +16,7 @@ export default defineConfig({
     // default true, when it is true, will use `navigator.language` overwrite default
     baseNavigator: true,
   },
-  dynamicImport: {
-    loading: '@/components/PageLoading/index',
-  },
+  dynamicImport: false,
   targets: {
     ie: 11,
   },
@@ -34,8 +30,12 @@ export default defineConfig({
   // @ts-ignore
   title: false,
   ignoreMomentLocale: true,
-  proxy: proxy[REACT_APP_ENV || 'dev'],
   manifest: {
     basePath: '/',
+  },
+  outputPath: 'dist/dsop_protal',
+  // 静态化
+  exportStatic: {
+    htmlSuffix: false,
   },
 });
